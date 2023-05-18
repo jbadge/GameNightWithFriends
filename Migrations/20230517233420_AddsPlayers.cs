@@ -10,7 +10,7 @@ namespace GameNightWithFriends.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "PLayers",
+                name: "Players",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -20,9 +20,9 @@ namespace GameNightWithFriends.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PLayers", x => x.Id);
+                    table.PrimaryKey("PK_Players", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PLayers_GameNights_GameNightId",
+                        name: "FK_Players_GameNights_GameNightId",
                         column: x => x.GameNightId,
                         principalTable: "GameNights",
                         principalColumn: "Id",
@@ -30,15 +30,15 @@ namespace GameNightWithFriends.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_PLayers_GameNightId",
-                table: "PLayers",
+                name: "IX_Players_GameNightId",
+                table: "Players",
                 column: "GameNightId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "PLayers");
+                name: "Players");
         }
     }
 }
